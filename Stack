@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Stack
+{
+    class Stack
+    {
+        static int MAX = 100;
+        int[] s;
+        int size;
+        int top;
+        public void Overflow()
+        {
+            Console.WriteLine("오버플로우");
+            Environment.Exit(-1);
+        }
+        public void emptyError()
+        {
+            Console.WriteLine("비어있음");
+            Environment.Exit(-1);
+        }
+        public Stack()
+        {
+            s = new int[MAX];
+            top = -1;
+            size = MAX;
+        }
+        public Stack(int x)
+        {
+            s = new int[x];
+            size = x;
+            top = -1;
+        }
+
+        public void push(int x)
+        {
+            if (top >= size-1) Overflow();
+            top++;
+            s[top] = x;
+        }
+        public int pop()
+        {
+            if (top == -1) emptyError();
+            int x = s[top];
+            top--;
+            return x;
+        }
+        public int peek()
+        {
+            return s[top];
+        }
+        public int getHave()
+        {
+            return top + 1;
+        }
+        public void print()
+        {
+            Console.Write("[");
+            for (int i = 0; i <= top; i++)
+            {
+                Console.Write(s[i] + " ");
+            }
+            Console.WriteLine("]");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            Stack a = new Stack();
+            Stack b = new Stack();
+            Stack c = new Stack(100);
+
+            a.push(10);
+            a.push(20);
+            a.push(30);
+            a.push(40);
+            int x = a.pop();
+            a.push(50);
+
+
+            b.push(100);
+            b.push(200);
+            b.push(300);
+            int y = b.pop();
+            b.push(400);
+            b.push(500);
+
+            c.push(60);
+            c.push(600);
+            int z = c.pop();
+            c.push(8000);
+
+
+
+            Console.WriteLine("x={0},y={1},z={2}", x, y, z);
+
+            Console.WriteLine("top a={0} , top b={1},top c={2}", a.peek(), b.peek(), c.peek());
+            Console.WriteLine("a의총 개수={0},b의총 개수={1},c의총 개수={2}", a.getHave(), b.getHave(), c.getHave());
+
+            a.print(); //스택안의 들어 있는것들 확인하는 함수
+        }     
+    }
+}
