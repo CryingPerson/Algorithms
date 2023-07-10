@@ -8,10 +8,19 @@ namespace Stack
 {
     class Stack
     {
-        static int MAX = 100;
+        static int MAX = 13;
         int[] s;
         int size;
         int top;
+        //housekeeping funcition class안에서 효율적으로 짜기위해서 만듬 바깥에서는 사용하지
+       // 않기때문에 private으로 정의
+        private void initialize()
+        {
+            for (int i = 0; i < s.Length; i++)
+            {
+                s[i] = 0;
+            }
+        }
         public void Overflow()
         {
             Console.WriteLine("오버플로우");
@@ -22,17 +31,16 @@ namespace Stack
             Console.WriteLine("비어있음");
             Environment.Exit(-1);
         }
-        public Stack()
+        public Stack() //중복되는 것을 줄여 함수 호출시 stack함수에 MAX값이 넘어가 실행됨
+            :this(MAX)
         {
-            s = new int[MAX];
-            top = -1;
-            size = MAX;
         }
         public Stack(int x)
         {
             s = new int[x];
             size = x;
             top = -1;
+            initialize();//초기화를 시켜 안정성
         }
 
         public void push(int x)
@@ -64,6 +72,11 @@ namespace Stack
                 Console.Write(s[i] + " ");
             }
             Console.WriteLine("]");
+        }
+        public bool isEmpty()
+        {
+            if (top == -1) return true;
+            return false;
         }
     }
     class Program
@@ -103,7 +116,15 @@ namespace Stack
             Console.WriteLine("top a={0} , top b={1},top c={2}", a.peek(), b.peek(), c.peek());
             Console.WriteLine("a의총 개수={0},b의총 개수={1},c의총 개수={2}", a.getHave(), b.getHave(), c.getHave());
 
-            a.print(); //스택안의 들어 있는것들 확인하는 함수
+            a.print();
+            if (b.isEmpty())
+            {
+                Console.WriteLine(" mpty");
+            }
+            else
+            {
+                Console.WriteLine("Not Empty");
+            }
         }     
     }
 }
