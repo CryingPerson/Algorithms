@@ -40,7 +40,7 @@ namespace Stack
             s = new int[x];
             size = x;
             top = -1;
-            initialize();//초기화를 시켜 안정성
+            initialize();//0을 원래 채워주지만 직접 초기화를 시켜 안정성 향상
         }
 
         public void push(int x)
@@ -117,9 +117,9 @@ namespace Stack
             Console.WriteLine("a의총 개수={0},b의총 개수={1},c의총 개수={2}", a.getHave(), b.getHave(), c.getHave());
 
             a.print();
-            if (b.isEmpty())
+            if (b.isEmpty()) //b의 스택안이 비어있는지 확인하기 위해쓰이는 함수임. isEmpty
             {
-                Console.WriteLine(" mpty");
+                Console.WriteLine(" Empty");
             }
             else
             {
