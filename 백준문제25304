@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace backjoon
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 0; i < b; i++)
+            {
+                String[] s = Console.ReadLine().Split();
+                int[] num = Array.ConvertAll(s, int.Parse);
+                sum = sum + num[0] * num[1];
+
+            }
+            if (sum == a) Console.WriteLine("Yes");
+            else Console.WriteLine("No");
+          
+        }
+    }
+}
+1. string으로 이차원 배열을 선언했음
+
+- 공백 Split 나눠야하니까 string으로 하고 나중에 int.Parse로 바꿔주어야 한다고 생각했음
+
+- [개수,물건] 으로 저장된다고 생각해서 string[,] 이차원 배열로 선언함;
+
+  Array.ConvertAll을 쓸 생각 못함(애초에 몰랐다ㅠ 그래서 int.Parse는 앞에만 오는 줄..)
+
+- 배열 형식 변환할 때 매우 유용하다고 한다..
+
+Array.ConvertAll( 변환할 배열, 변환할 형식 )
+
+이는 주로 다음과 같은 방식으로 사용된다.
+
+string[] s = Console.ReadLine().Split();
+int[] score = Array.ConvertAll(s, int.Parse);
+이거 사용하면 이지하긴함 해보니까 이해됨
