@@ -15,7 +15,7 @@ namespace backjoon
                 string[] num = Console.ReadLine().Split();
                 st.Append(int.Parse(num[0]) + int.Parse(num[1]) + "\n");
             }
-            Console.WriteLine(st.ToString()); //마지막에 더해줌
+            Console.WriteLine(st.ToString()); //마지막에 tostring으로 결과값 표시.
         }
     }
 }
