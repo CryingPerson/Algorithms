@@ -1,0 +1,21 @@
+using System;
+using System.Text;
+
+namespace backjoon
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StringBuilder st = new StringBuilder();
+            int a = int.Parse(Console.ReadLine());
+            for (int i = 0; i < a; i++)
+            {
+                  //c# 한줄에 두정수 입력받아서 더하는 코드
+                string[] num = Console.ReadLine().Split();
+                st.Append(int.Parse(num[0]) + int.Parse(num[1]) + "\n");
+            }
+            Console.WriteLine(st.ToString()); //마지막에 더해줌
+        }
+    }
+}
