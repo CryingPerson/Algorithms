@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hello_World
+//이 문제에서는 입력값을 안받고 풀어야 하고 여기서 항상 반복문 사용할때 for문만 사용해서 못풀었따
+//이렇게 몇번의 반복이 모를때는while문을 사용해서 풀자.
+//break문은 저 if문이 실행이 되면 바로 while 나가서 결과값 출력하는것이다.
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            StringBuilder sb=new StringBuilder();
+
+            while(true)
+            {
+                string[]s = Console.ReadLine().Split(' ');
+                int a=int.Parse(s[0]); 
+                int b=int.Parse(s[1]);
+
+                if(a==0 && b==0)
+                {
+                    break;
+                }
+                sb.Append(a + b+"\n");
+            }
+           
+
+            Console.WriteLine(sb.ToString());
+        }
+    }
+}
